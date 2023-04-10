@@ -73,5 +73,5 @@ jobs:
         working-directory: ${{ env.TG_SRC_PATH }}/${{ env.TFC_WORKSPACE }}
         env:
           app_image: ${{ env.IMAGE_ID }}:${{ env.APP_TAG }}
-          LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }}          
+          LICENSE_PLATE: ${{ secrets.LICENSPLATE }}          
         run: terragrunt run-all apply --terragrunt-non-interactive

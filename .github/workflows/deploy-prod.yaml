@@ -5,7 +5,7 @@ on:
 
 env:
   IMAGE_ID: ${{ secrets.AWS_ECR_URI }}
-  LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }}
+  LICENSE_PLATE: ${{ secrets.LICENSPLATE }}
 
   TF_VERSION: 1.2.2
   TG_VERSION: 0.37.1
@@ -66,7 +66,7 @@ jobs:
         env:
           TF_CLI_ARGS: -no-color
           app_image: ${{ env.IMAGE_ID }}:${{ env.APP_TAG }}
-          LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }}
+          LICENSE_PLATE: ${{ secrets.LICENSPLATE }}
         run: terragrunt run-all plan --terragrunt-non-interactive | tee /tmp/tg_plan
         continue-on-error: true
 
@@ -198,5 +198,5 @@ jobs:
         working-directory: ${{ env.TG_SRC_PATH }}/${{ env.TFC_WORKSPACE }}
         env:
           app_image: ${{ env.IMAGE_ID }}:${{ env.APP_TAG }}
-          LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }}
+          LICENSE_PLATE: ${{ secrets.LICENSPLATE }}
         run: terragrunt run-all apply --terragrunt-non-interactive

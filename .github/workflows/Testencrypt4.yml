@@ -3,7 +3,7 @@
 name: Test EncryptionResults
 
 env:
-      LICENSE_PLATE: ${{ secrets.MY_LICENSE_PLATE }} 
+      LICENSE_PLATE: ${{ secrets.LICENSPLATE }} 
 
 # Controls when the workflow will run
 on:
@@ -40,8 +40,8 @@ jobs:
 
       - name: create combined pwd  and Encrypt README.md
         run: |
-          fullPWD=${{ env.randomPWD }}-${{ secrets.MY_LICENSE_PLATE }} 
-          echo envFullPWD=${{ env.randomPWD }}-${{ secrets.MY_LICENSE_PLATE }}  >> $GITHUB_ENV
+          fullPWD=${{ env.randomPWD }}-${{ secrets.LICENSPLATE }} 
+          echo envFullPWD=${{ env.randomPWD }}-${{ secrets.LICENSPLATE }}  >> $GITHUB_ENV
 
       - name: Encrypt README.md
         run: | 
