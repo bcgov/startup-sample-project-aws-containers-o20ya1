@@ -41,7 +41,7 @@ console.log(values)
             options={[
               { value: 'Aloha', label: 'Aloha' },
               { value: 'Bonjour', label: 'Bonjour' },
-              { value: 'Containers', label: 'Containers App for vhc0kq Nov 2, 2022' },
+              { value: 'Containers', label: 'Containers App for o20ya1, upgrade 1.5.6a. April 10, 2023' },
               { value: 'Greetings and salutations', label: 'Greetings and salutations' },
               { value: 'Hello', label: 'Hello' },
               { value: 'Howdy', label: 'Howdy' },

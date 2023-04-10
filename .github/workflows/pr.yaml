@@ -2,16 +2,7 @@ name: Pull Request
 
 
 on:
-  pull_request:
-    paths:
-      - ".github/workflows/pr.yaml"
-      - ".github/workflows/tf-plan.yaml"
-      - "client/**"
-      - "server/**"
-      - "terraform/**"
-      - "!terraform/sandbox/**"
-      - "Dockerfile"
-      - "!**/README.md"
+  workflow_dispatch:
 
 env:
   IMAGE_ID: ${{ secrets.AWS_ECR_URI }}
