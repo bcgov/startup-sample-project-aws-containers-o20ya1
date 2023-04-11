@@ -30,11 +30,6 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Show vars1
-        run: echo "1111"
-
-      - name: Show vars2
-        run: echo '2222'
 
       - name: Show vars4
         run: echo ${{ inputs.env }}
@@ -42,8 +37,11 @@ jobs:
       - name: Show TF Version 1
         run: echo ${{ env.TF_VERSION }}
 
-      - name: Show TERRAFORM_DEPLOY_ROLE_ARN
+      - name: Show TERRAFORM_DEPLOY_ROLE_ARN vars
         run: echo ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN}}
+      
+      - name: Show TERRAFORM_DEPLOY_ROLE_ARN env
+        run: echo ${{ env.TERRAFORM_DEPLOY_ROLE_ARN}}
 
       - name: Show vars5
         run: echo ${{ vars.LICENSEPLATE }}
