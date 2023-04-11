@@ -3,7 +3,7 @@ name: Show Variables
 on:
   workflow_dispatch:
     inputs:
-      env:
+      environment:
         description: select the environment to show the vars
         type: environment
         required: true
@@ -37,7 +37,7 @@ jobs:
         run: echo '2222'
 
       - name: Show vars4
-        run: echo ${{ env.TERRAFORM_DEPLOY_ROLE_ARN }}
+        run: echo ${{ environment.TERRAFORM_DEPLOY_ROLE_ARN }}
       
       - name: Show TF Version 1
         run: echo ${{ env.TF_VERSION }}
@@ -48,7 +48,8 @@ jobs:
       - name: Show vars5
         run: echo ${{ vars.LICENSEPLATE }}
 
-
+      - name: Show selected environment
+        run: echo ${{ inputs.environment }}
 
       - uses: hashicorp/setup-terraform@v1
         with:
