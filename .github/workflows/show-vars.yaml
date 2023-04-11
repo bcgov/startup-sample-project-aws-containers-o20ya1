@@ -21,7 +21,7 @@ permissions:
 jobs:
   cd:
     name: cd
-    environment: tools
+    #environment: tools
     runs-on: ubuntu-22.04
 
     steps:
