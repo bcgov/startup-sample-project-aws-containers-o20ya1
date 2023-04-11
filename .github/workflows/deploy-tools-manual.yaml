@@ -25,12 +25,19 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Show vars
+      - name: Show vars1
         run: echo "1111"
+
+      - name: Show vars2
         run: echo '2222'
+
+      - name: Show vars3
         run: echo `3333`
-        
+
+      - name: Show vars4
         run: echo $env.TERRAFORM_DEPLOY_ROLE_ARN 
+      
+      - name: Show vars5
         run: echo $vars.LICENSEPLATE 
 
       - name: Configure AWS Credentials
