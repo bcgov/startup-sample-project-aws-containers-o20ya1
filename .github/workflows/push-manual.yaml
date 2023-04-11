@@ -26,6 +26,9 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
+      - name: Show TERRAFORM_DEPLOY_ROLE_ARN - I think is for tools env
+        run: echo ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN}}   
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
