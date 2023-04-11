@@ -3,7 +3,7 @@ name: Show Variables
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      env:
         description: select the environment to show the vars
         type: environment
         required: true
@@ -37,7 +37,7 @@ jobs:
         run: echo '2222'
 
       - name: Show vars4
-        run: echo ${{ environment.TERRAFORM_DEPLOY_ROLE_ARN }}
+        run: echo ${{ inputs.environment }}
       
       - name: Show TF Version 1
         run: echo ${{ env.TF_VERSION }}
