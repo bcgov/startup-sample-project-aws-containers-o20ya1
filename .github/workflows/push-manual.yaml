@@ -27,12 +27,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Show TERRAFORM_DEPLOY_ROLE_ARN - I think is for tools env
-        run: echo ${{ secrets.TERRAFORM_DEPLOY_ROLE_ARN}}   
+        run: echo ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN}}   
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.TERRAFORM_DEPLOY_ROLE_ARN }}
+          role-to-assume: ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN }}
           aws-region: ca-central-1
 
       - name: Login to Amazon ECR
@@ -61,7 +61,7 @@ jobs:
           target: test
 
       - name: Show TERRAFORM_DEPLOY_ROLE_ARN - I think is for tools env
-        run: echo ${{ secrets.TERRAFORM_DEPLOY_ROLE_ARN}}
+        run: echo ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN}}
 
       - name: Build and push
         id: docker_build
@@ -89,12 +89,12 @@ jobs:
           ref: ${{ github.event.workflow_run.head_branch }}
 
       - name: Show TERRAFORM_DEPLOY_ROLE_ARN - I think is for dev env
-        run: echo ${{ secrets.TERRAFORM_DEPLOY_ROLE_ARN}}
+        run: echo ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN}}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.TERRAFORM_DEPLOY_ROLE_ARN }}
+          role-to-assume: ${{ vars.TERRAFORM_DEPLOY_ROLE_ARN }}
           aws-region: ca-central-1
 
       - uses: hashicorp/setup-terraform@v1
