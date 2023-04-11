@@ -31,7 +31,7 @@ jobs:
         run: echo `3333`
         
         run: echo $env.TERRAFORM_DEPLOY_ROLE_ARN 
-        run: echo 'License Plate: $vars.LICENSEPLATE '
+        run: echo $vars.LICENSEPLATE 
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
