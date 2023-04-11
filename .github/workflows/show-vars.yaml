@@ -37,13 +37,13 @@ jobs:
         run: echo '2222'
 
       - name: Show vars4
-        run: echo ${{ inputs.environment }}
+        run: echo ${{ inputs.env }}
       
       - name: Show TF Version 1
         run: echo ${{ env.TF_VERSION }}
 
       - name: Show TF Version 2
-        run: echo '--> $env.TF_VERSION'
+        run: echo "--> $env.TF_VERSION"
 
       - name: Show vars5
         run: echo ${{ vars.LICENSEPLATE }}
