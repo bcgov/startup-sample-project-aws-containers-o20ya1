@@ -1,6 +1,5 @@
 name: Destroy environment
 
-
 on:
   workflow_dispatch:
     inputs:
