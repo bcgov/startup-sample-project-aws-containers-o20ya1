@@ -1,12 +1,11 @@
-
-name: vars environment
+name: Destroy environment
 
 
 on:
   workflow_dispatch:
     inputs:
       env:
-        description: select the environment to vars
+        description: select the environment to destroy
         type: environment
         required: true
 
@@ -20,8 +19,8 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 jobs:
-  tf_vars:
-    name: vars the selected environment
+  tf_destroy:
+    name: Destroy the selected environment
     environment: ${{ inputs.env }}
     runs-on: ubuntu-20.04
 
@@ -45,15 +44,13 @@ jobs:
         with:
           terragrunt_version: ${{ env.TG_VERSION }}
 
-      - name: Terragrunt vars
+      - name: Terragrunt destroy
         working-directory: ${{ env.TG_SRC_PATH }}/${{ env.TFC_WORKSPACE }}
         env:
           job_env: "${{ inputs.env }}"
-          AWS_ACCOUNTS_ECR_READ_ACCESS: ${{ secrets.AWS_ACCOUNTS_ECR_READ_ACCESS }}
+          AWS_ACCOUNTS_ECR_READ_ACCESS: ${{ vars.AWS_ACCOUNTS_ECR_READ_ACCESS }}
           LICENSE_PLATE: ${{ vars.LICENSEPLATE }}
         run: |
           # if [ "$job_env" == "tools" ];then export job_env="sandbox";fi
           cd $job_env
-          terragrunt run-all vars --terragrunt-non-interactive
-
-
+          terragrunt run-all destroy --terragrunt-non-interactive
