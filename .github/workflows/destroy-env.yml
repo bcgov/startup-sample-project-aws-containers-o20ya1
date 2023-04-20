@@ -1,12 +1,12 @@
 
-name: Destroy environment
+name: vars environment
 
 
 on:
   workflow_dispatch:
     inputs:
       env:
-        description: select the environment to destroy
+        description: select the environment to vars
         type: environment
         required: true
 
@@ -20,8 +20,8 @@ permissions:
   contents: read  # This is required for actions/checkout
 
 jobs:
-  tf_destroy:
-    name: Destroy the selected environment
+  tf_vars:
+    name: vars the selected environment
     environment: ${{ inputs.env }}
     runs-on: ubuntu-20.04
 
@@ -45,7 +45,7 @@ jobs:
         with:
           terragrunt_version: ${{ env.TG_VERSION }}
 
-      - name: Terragrunt destroy
+      - name: Terragrunt vars
         working-directory: ${{ env.TG_SRC_PATH }}/${{ env.TFC_WORKSPACE }}
         env:
           job_env: "${{ inputs.env }}"
@@ -54,6 +54,6 @@ jobs:
         run: |
           # if [ "$job_env" == "tools" ];then export job_env="sandbox";fi
           cd $job_env
-          terragrunt run-all destroy --terragrunt-non-interactive
+          terragrunt run-all vars --terragrunt-non-interactive
 
 

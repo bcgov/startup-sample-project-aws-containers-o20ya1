@@ -51,7 +51,7 @@ The following secrets are the same that are required to install the app in AWS (
 - AWS_ROLE_TO_ASSUME
 - AWS_SECRET_ACCESS_KEY
 
-- LICENSPLATE
+- LICENSEPLATE
 - TFC_TEAM_TOKEN
 
 The following secrets need to be set to run the test using BrowserStack servers

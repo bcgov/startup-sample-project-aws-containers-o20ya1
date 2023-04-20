@@ -2,7 +2,7 @@
 name: Test BrowserStack
 
 env:  
-     LICENSE_PLATE: ${{ secrets.LICENSPLATE }}
+     LICENSE_PLATE: ${{ vars.LICENSEPLATE }}
 
 
 on: 

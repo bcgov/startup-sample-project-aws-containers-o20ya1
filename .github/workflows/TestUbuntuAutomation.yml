@@ -4,7 +4,7 @@
 name: Test Automated action Ubuntu
 
 env:
-      LICENSE_PLATE: ${{ secrets.LICENSPLATE }}   
+      LICENSE_PLATE: ${{ vars.LICENSEPLATE }}   
       
 on:
     workflow_dispatch:
@@ -60,7 +60,7 @@ jobs:
 
     - name: create combined pwd  and Encrypt README.md
       run: |
-            echo fullPWD=${{ env.randomPWD }}-${{ secrets.LICENSPLATE }}  >> $GITHUB_ENV
+            echo fullPWD=${{ env.randomPWD }}-${{ vars.LICENSEPLATE }}  >> $GITHUB_ENV
 
     - name: Encrypt README.md
       run: | 
